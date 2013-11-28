@@ -33,15 +33,22 @@ $string['pluginname'] = 'Course ratings';
 $string['courserating'] = 'Course ratings';
 
 $string['completed'] = 'Thank you.  You have already given this course a rating.';
-$string['giverating'] = 'Give a rating';
-$string['intro'] = 'Please indicate how highly you rate this course.';
-$string['submit'] = 'Submit my rating';
+$string['giverating'] = 'Rate this course';
+$string['intro'] = 'Please rate this course from 1 to 5.';
+$string['submit'] = 'Rate course';
 $string['noguestuseage'] = 'To rate this course you will need to log in.';
 $string['rate_course:rate'] ='Give a rating to a course';
 $string['rating_alt0'] ='Course rating: No ratings given.';
 $string['rating_altnum'] ='Course rating: {$a} stars.';
 $string['rating_users'] ='Rated by {$a} user(s)';
 $string['editingsitehome'] = 'This block will display ratings on course pages only, and is hidden elsewhere.';
+
+// Rating labels
+$string['rating_label5'] = ' Would highly recommend';
+$string['rating_label4'] = ' Would recommend';
+$string['rating_label3'] = ' Is OK';
+$string['rating_label2'] = ' Would avoid';
+$string['rating_label1'] = ' Would recommend others avoid';
 
 // Questionnaire integration.
 $string['survey'] = 'What is the questionnaire name?';

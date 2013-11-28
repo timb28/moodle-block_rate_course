@@ -52,7 +52,7 @@ if ((!isloggedin() || isguestuser())) {
 }
 require_capability('block/rate_course:rate', $context);
 
-echo "<div style='text-align:center'>";
+echo '<div class="block_rate_course">';
 $block = block_instance('rate_course');
 $block->display_rating($course->id);
 
@@ -68,21 +68,28 @@ echo "<div><p>$rate_text</p></div>";
 // Now output the form.
 echo '<form method="post" action="'.
         $CFG->wwwroot.'/blocks/rate_course/update.php">
-        <p><input name="id" type="hidden" value="'.$course->id.'" /></p><p>';
+        <input name="id" type="hidden" value="'.$course->id.'" />';
 
-for ($i = 1; $i <= 5; $i++) {
+for ($i = 5; $i >= 1; $i--) {
     $checked = '';
     if (isset($existing_answer) && ($existing_answer !== false)) {
         if ($existing_answer->rating == $i) {
                 $checked = 'checked="checked"';
         }
     }
+    
+    $ratinglabel = get_string('rating_label'.$i, 'block_rate_course');
+    $ratingimage = '<img src="'.
+            $CFG->wwwroot.'/blocks/rate_course/pix/star'.($i*2).'.png"/>';
 
+    echo '<div class="rate_course_item">';
     echo '<input type="radio" name="grade" ';
     if ($existing_answer) {
         echo 'disabled="disabled" ';
     }
-    echo 'value="'.$i.'" '.$checked.' alt="Rating of '.$i.'"  />'.$i.' ';
+    echo 'id="rating'.$i.'" value="'.$i.'" '.$checked.' alt="Rating of '.$i.'"  />';
+    echo '<label for="rating'.$i.'">'.$ratingimage.$ratinglabel.'</label>';
+    echo '</div>';
 }
 
 echo '</p><p><input type="submit" value="'.get_string('submit', 'block_rate_course').'"';
